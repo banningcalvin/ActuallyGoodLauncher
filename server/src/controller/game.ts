@@ -4,7 +4,7 @@ import passportJWT from "passport-jwt";
 import config from "../config/config";
 import { Game, GameDocument } from "../model/game";
 
-export class UserController {
+export class GameController {
     public addNewGame(req: Request, res: Response) {
         const newGame = new Game(req.body);
         console.log(req.body);

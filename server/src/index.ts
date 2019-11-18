@@ -3,7 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import config from "./config/config";
 
-import {UserRouter} from "./router/user";
+import {Router} from "./router/router";
 
 class Application {
     public app: express.Application;
@@ -38,7 +38,7 @@ class Application {
     }
     // setup routes for the express server
     public buildRoutes(): void {
-        this.app.use("/account", new UserRouter().getRouter());
+        this.app.use("/account", new Router().getRouter());
     }
 
     private mongoSetup(): void {
