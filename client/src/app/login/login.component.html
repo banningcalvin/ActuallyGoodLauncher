@@ -3,8 +3,8 @@
         <h1>
             Login
         </h1>
-        <input [(ngModel)]="form.username" name="username" placeholder="username@email.com"/>
-        <input [(ngModel)]="form.password" name="password" placeholder="password123"/>
+        <input [(ngModel)]="form.username" name="username" type="text" placeholder="username@email.com"/>
+        <input [(ngModel)]="form.password" name="password" type="password" placeholder="password123"/>
         <button type="submit" (click)="onSubmit()"  (submit)="onSubmit()">
             Login
         </button>
