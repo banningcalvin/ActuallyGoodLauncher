@@ -7,7 +7,7 @@ export type GameDocument = mongoose.Document & {
     developer: UserDocument["_id"];
     title: string;
     description: string;
-
+    releaseDate: string;
     data: {
         times_played: number;
         icon: Url;
@@ -30,6 +30,10 @@ const GameSchema = new mongoose.Schema({
     },
 
     description: {
+        required: true,
+        type: String
+    },
+    releaseDate: {
         required: true,
         type: String
     },
@@ -62,6 +66,7 @@ GameSchema.methods.toJSON = function() {
         title: this.title,
         description: this.description,
         developer: this.developer,
+        releaseDate: this.releaseDate,
         data: {
             times_played: this.data.times_played,
             icon: this.data.icon,

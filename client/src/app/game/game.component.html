@@ -25,7 +25,8 @@
                 Released on:
             </p>
             <p>
-                {{ game.releaseDate | date:'shortDate' }}
+                
+                {{ game.releaseDate }}
             </p>
         </span>
         <span *ngIf="game.systemRequirements">
