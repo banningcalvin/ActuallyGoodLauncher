@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { games } from '../games';
 import { CartService } from '../cart.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-game',
@@ -9,16 +10,27 @@ import { CartService } from '../cart.service';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
+  gameID: string;
   game;
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
-    ) { }
+    private cartService: CartService,
+    private apiService: ApiService
+    ) {
+    
+  }
 
   ngOnInit() {
+    console.log('yeeeee');
     this.route.paramMap.subscribe(params => {
-      this.game = games[+params.get('id')];
+      console.log("Loading game with id: {" + params.get('id') + "}");
+      this.gameID = params.get('id');
+      this.apiService.getGame(this.gameID).subscribe((data) => {
+        console.log(data);
+        this.game = data;
+      });
+      //this.game = games[+params.get('id')];
     });
   }
 

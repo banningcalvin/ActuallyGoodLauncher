@@ -61,7 +61,7 @@ export class GameController {
     }
 
     public getGameByTitle(req: Request, res: Response, next: NextFunction) {
-        Game.findOne({ title: req.params.title }, (err, game) => {
+        Game.findOne({ title: req.params.gameId }, (err, game) => {
             if (err) {
                 res.send(err);
             }

@@ -1,0 +1,13 @@
+.content{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem 2rem;
+}
+
+.image-banner{
+    width: 100vw;
+    height: 42.85vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

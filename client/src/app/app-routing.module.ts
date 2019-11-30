@@ -7,6 +7,7 @@ import { GameComponent } from './game/game.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
       {path: 'cart', component: CartComponent},
       {path: ':id', component: GameComponent}
     ]},
-    {path: 'library', component: LibraryComponent}
+    {path: 'library', component: LibraryComponent},
+    {path: '', component: FooterComponent, outlet: 'footer'}
   ]},
 ];
 

@@ -1,15 +1,47 @@
-<div class='content'>
-    <img class='image-banner'/>
-    <a [routerLink]="['/store']">
-        Back to Store
-    </a>
-    <a [routerLink]="['/store/cart']">
-        View my Cart
-    </a>
-    <div *ngIf="game">
-        <h3>{{ game.name }}</h3>
-        <button (click)="addToCart(game)">
-            Buy
-        </button>
+<div class='content' *ngIf="game">
+    <div class='image-banner' [style.background-image]="'url(' + game.imgBanner + ')'">
+
     </div>
+    <h1 class='title'>
+        {{ game.title }}
+    </h1>
+    <button (click)="addToCart(game)">
+        {{ game.price | currency}}
+    </button>
+    <p class='description'>
+        {{ game.description }}
+    </p>
+    <span class='game-info'>
+        <span>
+            <p>
+                Developed by:
+            </p>
+            <h3>
+                {{ game.developer }}
+            </h3>
+        </span>
+        <span>
+            <p>
+                Released on:
+            </p>
+            <p>
+                {{ game.releaseDate | date:'shortDate' }}
+            </p>
+        </span>
+        <span *ngIf="game.systemRequirements">
+            <p>
+                Recommended specs:
+            </p>
+            <ul>
+                <li *ngFor="let requirement of game.systemRequirements">
+                    <h5>
+                        {{ requirement.type }}
+                    </h5>
+                    <h4>
+                        {{ requirement.value }}
+                    </h4>
+                </li>
+            </ul>
+        </span>
+    </span>
 </div>

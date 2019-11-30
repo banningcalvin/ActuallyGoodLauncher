@@ -1,0 +1,26 @@
+footer{
+    padding: 3vw;
+    padding-top: 12vw;
+    padding-bottom: 6vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    color: inherit;
+}
+p{
+    padding-top: 1rem;
+    font-size: .83rem;
+}
+
+@media(prefers-color-scheme: light){
+    footer{
+        color: rgb(80,80,80);
+    }
+}
+@media(prefers-color-scheme: dark){
+    footer{
+        color: rgb(180,180,180);
+    }
+}
