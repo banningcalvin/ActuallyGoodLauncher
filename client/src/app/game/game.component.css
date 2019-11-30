@@ -1,7 +1,7 @@
 .content{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .image-banner{
@@ -10,4 +10,5 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    z-index: 100;
 }
