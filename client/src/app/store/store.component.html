@@ -1,7 +1,7 @@
 <div class='content'>
     <div *ngIf="featuredGame" [routerLink]="['/store',featuredGame.title]" [style.background-image]="'url(' + featuredGame.data.background + ')'" class='featured-games'>
         <h1 class='featured-games__title'>
-            {{ featuredGame.title }}
+            Featured Title: {{ featuredGame.title }}
         </h1>
     </div>
 
