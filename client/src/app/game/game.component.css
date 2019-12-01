@@ -37,15 +37,18 @@ h1 span {
   position: relative;
   margin: 10px;
   text-align: left;
+  display: block;
 }
 .tabs li {
   float: left;
   display: block;
+  
 }
 .tabs input[type="radio"] {
   position: absolute;
   top: 0;
   left: -9999px;
+  display: block;
 }
 .tabs label {
   display: block;
@@ -63,6 +66,7 @@ h1 span {
   -o-transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+
 }
 .tabs label:hover {
   background: #506477;
@@ -79,11 +83,13 @@ h1 span {
   top: 53px;
   left: 0;
   background: #506477;
+  
 }
 .tabs [id^="tab"]:checked + label {
   top: 0;
   padding-top: 17px;
   background: #506477;
+  display: block;
 }
 .tabs [id^="tab"]:checked ~ [id^="tab-content"] {
   display: block;
