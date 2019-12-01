@@ -20,8 +20,9 @@ export class StoreComponent implements OnInit {
     console.log('calling apiservice?');
     this.apiService.getGames().subscribe((data) => {
       console.log(data);
+      console.log("apiserveice getgames")
       this.allGames = data;
-      if(this.allGames.length > 5){
+      if(this.allGames.length > 1){
         this.featuredGame = this.allGames[0];
         this.highlightedGames = this.allGames.slice(1, 5);
         this.listedGames = this.allGames.slice(5);

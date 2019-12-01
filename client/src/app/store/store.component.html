@@ -1,7 +1,7 @@
 <div class='content'>
-    <div *ngIf="featuredGame" [routerLink]="['/store',featuredGame.title]" [style.background-image]="'url(' + featuredGame.imgBanner + ')'" class='featured-games'>
+    <div *ngIf="featuredGame" [routerLink]="['/store',featuredGame.title]" [style.background-image]="'url(' + featuredGame.data.background + ')'" class='featured-games'>
         <h1 class='featured-games__title'>
-            {{ featuredGame.title }}
+            Featured Title: {{ featuredGame.title }}
         </h1>
     </div>
 
@@ -15,7 +15,7 @@
 
     <ul class='highlighted-games'>
         <li *ngFor="let game of highlightedGames" class='highlighted-games__game'>
-            <a [routerLink]="['/store', game.title]" class='highlighted-games__link' [style.background-image]="'url(' + game.imgProfile + ')'">
+            <a [routerLink]="['/store', game.title]" class='highlighted-games__link' [style.background-image]="'url(' + game.data.background + ')'">
                 <h3 class='highlighted-games__game__title'>
                     {{ game.title }}
                 </h3>
