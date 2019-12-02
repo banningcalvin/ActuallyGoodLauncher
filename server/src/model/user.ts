@@ -87,7 +87,7 @@ UserSchema.methods.toJSON = function() {
     return {
         _id: this._id,
         email: this.email,
-        games: this.profile.games,
+        games: this.games,
         profile: {
             admin: this.profile.admin,
             developer: this.profile.developer,

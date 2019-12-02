@@ -137,26 +137,4 @@ export class UserController {
             res.json({ message: "Successfully Deleted User!" });
         });
     }
-
-    public buyGame(req: Request, res: Response){
-        const currentUser = new User(req.user);
-
-        Game.findById({ _id: req.params.gameId }, (err, game) => {
-            if (err) {
-                res.send(err);
-            }
-
-            User.findByIdAndUpdate(
-                { _id: currentUser._id },
-                { $push: { games: game._id } },
-                (err, updatedUser) => {
-                    if (err) {
-                        res.send(err);
-                    }
-
-                    res.json(updatedUser);
-                }
-            )
-        });
-    }
 }

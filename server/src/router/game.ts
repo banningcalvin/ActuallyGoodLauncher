@@ -14,6 +14,8 @@ export class GameRouter {
         this.router.get("", this.gameController.getGames);
         this.router.post("/addNewGame", requireAuth, this.gameAuthorization.addNewGame, this.gameController.addNewGame)
 
+        this.router.post("/:gameId/buy", requireAuth, this.gameController.buyGame);
+
         this.router.get("/:gameId", this.gameController.getGameById);
         this.router.put("/:gameId", requireAuth, this.gameAuthorization.updateGame, this.gameController.updateGame);
         this.router.delete("/:gameId", requireAuth, this.gameAuthorization.deleteGame, this.gameController.deleteGame);

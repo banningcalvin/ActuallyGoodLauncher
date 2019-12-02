@@ -3,6 +3,28 @@ import { User } from "../model/user";
 import { Game } from "../model/game";
 
 export class GameController {
+
+    public buyGame(req: Request, res: Response, next: NextFunction) {
+        Game.findOne({ _id: req.params.gameId }, (err, game) => {
+            if (err) {
+                res.send(err);
+            }
+
+            const currentUser = new User(req.user);
+
+            User.findByIdAndUpdate(
+                { _id: currentUser._id },
+                { $push: { games: game._id } },
+                (err, updatedUser) => {
+                    if (err) {
+                        res.send(err);
+                    }
+
+                    res.json(updatedUser);
+                }
+            )
+        })
+    }
     
     public addNewGame(req: Request, res: Response, next: NextFunction) {
 
