@@ -1,15 +1,52 @@
-<div class='content'>
-    <img class='image-banner'/>
-    <a [routerLink]="['/store']">
-        Back to Store
-    </a>
-    <a [routerLink]="['/store/cart']">
-        View my Cart
-    </a>
-    <div *ngIf="game">
-        <h3>{{ game.name }}</h3>
-        <button (click)="addToCart(game)">
-            Buy
-        </button>
+<div class='content' *ngIf="game">
+    <div class='image-banner' [style.background-image]="'url(' + game.data.background + ')'">
     </div>
+
+    <h1 class='title' style="z-index:1000;text-shadow: 1px 1px 4px black;margin:10px">
+        {{ game.title }}
+    </h1>
+    <ul class="tabs" role="tablist">
+        <li>
+            <input type="radio" name="tabs" id="tab1" checked />
+            <label for="tab1" role="tab" aria-selected="true" aria-controls="panel1" tabindex="0">Description</label>
+            <div id="tab-content1" class="tab-content" role="tabpanel" aria-labelledby="description"
+                aria-hidden="false">
+                <p>{{ game.description }}</p>
+            </div>
+        </li>
+
+        <li>
+            <input type="radio" name="tabs" id="tab2" />
+            <label for="tab2" role="tab" aria-selected="false" aria-controls="panel2" tabindex="0">Specification</label>
+            <div id="tab-content2" class="tab-content" role="tabpanel" aria-labelledby="specification"
+                aria-hidden="true">
+                <p><strong>Release Date: </strong>{{ game.releaseDate }} </p>
+
+                <span class='game-info'>
+
+                    <span *ngIf="game.systemRequirements">
+                        <p>
+                            Recommended specs:
+                        </p>
+                        <ul>
+                            <li *ngFor="let requirement of game.systemRequirements">
+                                <h5>
+                                    {{ requirement.type }}
+                                </h5>
+                                <h4>
+                                    {{ requirement.value }}
+                                </h4>
+                            </li>
+                        </ul>
+                    </span>
+                </span>
+            </div>
+        </li>
+    </ul>
+
+
+
+    <button (click)="addToCart(game)">
+        {{ game.price | currency}}
+    </button>
 </div>

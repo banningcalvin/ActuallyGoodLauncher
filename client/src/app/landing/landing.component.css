@@ -1,0 +1,47 @@
+
+  .loader{
+    width: 100vw;
+    text-align: center;
+    padding: 1em;
+    padding-top: 40vh;
+    margin: 0 auto 1em;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  /*
+    Set the color of the icon
+  */
+  svg path,
+  svg rect{
+    fill: #FF6700;
+    width: 80px;
+    height:80px;
+  }
+  #loader-1 {
+    height:80px;
+    width: 80px;
+  }
+
+  .loader {
+      max-height: 100vh;
+      padding: 0px;
+      margin: 0px;
+      height: 100vh;
+      overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .bgblur {
+    
+width: 100vw;
+height: 100vh;
+top: 0px;
+left: 0px;
+position: absolute;
+z-index: -1000;
+  }

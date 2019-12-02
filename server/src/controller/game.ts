@@ -32,6 +32,7 @@ export class GameController {
         const description = req.body.description;
         const icon = req.body.icon;
         const background = req.body.background;
+        const releaseDate = req.body.releaseDate;
 
         if (!title) {
             return res.status(422).send({ error: "You must enter game title." });
@@ -45,6 +46,9 @@ export class GameController {
         if (!background) {
             return res.status(422).send({ error: "You must enter game background." });
         }
+        if (!releaseDate) {
+            return res.status(422).send({ error: "You must enter release date string." });
+        }
 
         const currentUser = new User(req.user);
 
@@ -52,6 +56,7 @@ export class GameController {
             developer: currentUser._id,
             title: title,
             description: description,
+            releaseDate: releaseDate,
             data: {
                 times_played: 0,
                 icon: icon,
@@ -83,7 +88,7 @@ export class GameController {
     }
 
     public getGameByTitle(req: Request, res: Response, next: NextFunction) {
-        Game.findOne({ title: req.params.title }, (err, game) => {
+        Game.findOne({ title: req.params.gameId }, (err, game) => {
             if (err) {
                 res.send(err);
             }
@@ -111,6 +116,10 @@ export class GameController {
 
             if ('background' in req.body){
                 game.data.background = req.body.background;
+            }
+
+            if ('releaseDate' in req.body){
+                game.data.releaseDate = req.body.releaseDate;
             }
 
             game.save((err, updatedGame) => {
