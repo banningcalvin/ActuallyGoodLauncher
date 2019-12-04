@@ -35,15 +35,15 @@ export class UserController {
         // Check for registration errors
         const email = req.body.email;
         const password = req.body.password;
-        const firstName = req.body.firstName;
-        const lastName = req.body.lastName;
-
+        const firstName = "First";
+        const lastName = "Last";
+        console.log("registerig")
         if (!email) {
             return res.status(422).send({ error: "You must enter an email address." });
         }
-        if (!firstName || !lastName) {
-            return res.status(422).send({ error: "You must enter your full name." });
-        }
+        //if (!firstName || !lastName) {
+        //    return res.status(422).send({ error: "You must enter your full name." });
+        //}
         if (!password) {
             return res.status(422).send({ error: "You must enter a password." });
         }

@@ -53,6 +53,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  register() {
+    alert("registered!")
+    this.apiService.register(this.form.username, this.form.password);
+  }
+
   logout(){
     this.apiService.signOut();
     this.isLoggedIn = this.apiService.getAuthState();

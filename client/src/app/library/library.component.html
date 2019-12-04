@@ -2,7 +2,7 @@
     <h1> Your Games </h1>
     <ul class='highlighted-games'>
             <li *ngFor="let game of ownedGames" class='highlighted-games__game'>
-                <a class='highlighted-games__link' [style.background-image]="'url(' + game.data.background + ')'">
+                <a class='highlighted-games__link' [style.background-image]="'url(' + game.data.icon + ')'" href={{game.link}}>
                     <h3 class='highlighted-games__game__title'>
                         {{ game.title }}
                     </h3>
