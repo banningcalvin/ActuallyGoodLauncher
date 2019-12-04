@@ -8,6 +8,8 @@
         <input [(ngModel)]="gameToAdd.icon" name="icon" type="text" placeholder="an image URL for the game's icon"/>
         <input [(ngModel)]="gameToAdd.background" name="background" type="text" placeholder="an image URL for the game's background"/>
         <input [(ngModel)]="gameToAdd.releaseDate" name="releaseDate" type="text" placeholder="when was your game released?"/>
+        <input [(ngModel)]="gameToAdd.price" name="price" type="text" placeholder="how much is your game, in USD"/>
+        <input [(ngModel)]="gameToAdd.link" name="link" type="text" placeholder="game's launch URL"/>
         <button type="submit" (click)="onSubmit()"  (submit)="onSubmit()">
             Submit Game
         </button>

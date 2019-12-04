@@ -33,12 +33,21 @@ export class ApiService {
     );
   }
 
-  public addGame(title: string, description: string, icon: string, background: string, releaseDate: string){
+  public addGame(title: string, description: string, icon: string, background: string, releaseDate: string, price: string, link: string){
     console.log('API calling addNewGame endpoint...');
     console.log(localStorage.getItem("TOKEN"));
     return this.http.post(
       'http://localhost:3000/games/addNewGame',
-      {title: title, description: description, icon: icon, background: background, releaseDate: releaseDate},
+      {title: title, description: description, icon: icon, background: background, releaseDate: releaseDate, price: price, link: link},
+      {headers: {'Authorization': localStorage.getItem("TOKEN")}}
+    );
+  }
+
+  public buyGame(gameTitle: string){
+    console.log(this.userObject);
+    return this.http.post(
+      'http://localhost:3000/games/' + gameTitle + '/buy',
+      {},
       {headers: {'Authorization': localStorage.getItem("TOKEN")}}
     );
   }
