@@ -25,6 +25,13 @@ export class CartComponent implements OnInit {
         console.log("Error buying game (cart)");
         console.log(error);
       });
+      this.apiService.buyGame(item.title).subscribe((data) => {
+        console.log("Bought successfully");
+        console.log(data);
+      }, (error) => {
+        console.log("Error buying game (cart)");
+        console.log(error);
+      });
     });
   }
 
