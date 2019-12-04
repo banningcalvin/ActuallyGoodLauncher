@@ -1,3 +1,92 @@
-.content {
-    margin: 20px;
+.container{
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.emoji{
+    font-size: 4rem;
+}
+
+.listed-games{
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    width: 100%;
+    padding-left: 8vw;
+    padding-right: 8vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0rem 1rem;
+}
+.listed-games__link{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+
+.listed-games__link__title{
+    color: inherit;
+}
+
+.listed-games__link__price{
+    color: inherit;
+    font-weight: 500;
+}
+
+button, .login-error{
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 4px;
+    transition: box-shadow .2s, background-color .2s;
+}
+
+@media(prefers-color-scheme: light){
+    .listed-games__link{
+        color: black;
+    }
+    .listed-games__link:hover{
+        background-color: rgb(210, 240, 255);
+    }
+
+    .listed-games > li:nth-child(even){
+        background-color: rgb(230, 230, 230);
+    }
+    .listed-games > li:nth-child(odd){
+        background-color: rgb(210,210,210);
+    }
+    button{
+        background-color: rgb(170, 200, 245);
+        border: 1px solid rgb(140, 170, 215);
+    }
+    button:focus, button:hover{
+        background-color: rgb(180, 210, 255);
+    }
+    button:focus, button:hover{
+        box-shadow: 0 2px 20px 4px rgba(0,0,0,.1);
+    }
+}
+@media(prefers-color-scheme: dark){
+    .listed-games__link{
+        color: white;
+    }
+    .listed-games__link:hover{
+        background-color: rgb(40, 60, 90);
+    }
+    .listed-games > li:nth-child(even){
+        background-color: rgb(40, 40, 40);
+    }
+    .listed-games > li:nth-child(odd){
+        background-color: rgb(60, 60, 60);
+    }
+    button{
+        color: white;
+        background-color: rgb(10, 132, 255);
+        border: 1px solid rgb(0, 122, 255);
+    }
+    button:focus, button:hover{
+        background-color: rgb(30, 152, 255);
+    }
 }

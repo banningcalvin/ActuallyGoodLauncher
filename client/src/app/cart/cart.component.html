@@ -1,32 +1,32 @@
 <div class='content'>
-    <div *ngIf="items.length == 0">
+    <div class='container' *ngIf="items.length == 0">
         <h1>
             There are zero games in your cart
         </h1>
-        <h1>
+        <h1 class='emoji'>
             😔
         </h1>
         <button [routerLink]="['/store']">
             Browse games
         </button>
     </div>
-    <div *ngIf="items.length > 0">
+    <div class='container' *ngIf="items.length > 0">
         <h1 *ngIf="items.length == 1">
             You have 1 item in your cart:
         </h1>
         <h1 *ngIf="items.length > 1">
             You have {{items.length}} items in your cart:
         </h1>
-        <ul>
+        <ul class='listed-games'>
             <li *ngFor="let item of items">
-                <a [routerLink]="['/store', item.title]">
+                <a [routerLink]="['/store', item.title]" class='listed-games__link'>
                     <span>
-                        <h3>
+                        <h3 class='listed-games__link__title'>
                             {{item.title}}
                         </h3>
                     </span>
                     <span>
-                        <h3>
+                        <h3 class='listed-games__link__price'>
                             {{item.price}}
                         </h3>
                     </span>
