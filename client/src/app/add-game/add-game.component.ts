@@ -12,6 +12,9 @@ export class AddGameComponent implements OnInit {
     title: '',
     price: '',
     description: '',
+    icon: '',
+    background: '',
+    releaseDate: '',
     //whatever else is part of a game
   }
 
@@ -22,7 +25,19 @@ export class AddGameComponent implements OnInit {
   }
 
   onSubmit(){
-
+    this.apiService.addGame(
+      this.gameToAdd.title, 
+      this.gameToAdd.description, 
+      this.gameToAdd.icon, 
+      this.gameToAdd.background, 
+      this.gameToAdd.releaseDate).subscribe((data) => {
+        //TODO: game is added successfully, nice
+        console.log('Game added successfully!');
+        this.router.navigateByUrl('/store');
+    }, (error) => {
+      console.log('Error adding game...');
+      console.log(error);
+    });
   }
 
 }

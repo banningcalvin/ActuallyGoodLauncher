@@ -4,7 +4,10 @@
             Submit a new game
         </h1>
         <input [(ngModel)]="gameToAdd.title" name="title" type="text" placeholder="my game name"/>
-        <input [(ngModel)]="gameToAdd.price" name="price" type="price" placeholder="19.99"/>
+        <input [(ngModel)]="gameToAdd.description" name="description" type="text" placeholder="description"/>
+        <input [(ngModel)]="gameToAdd.icon" name="icon" type="text" placeholder="an image URL for the game's icon"/>
+        <input [(ngModel)]="gameToAdd.background" name="background" type="text" placeholder="an image URL for the game's background"/>
+        <input [(ngModel)]="gameToAdd.releaseDate" name="releaseDate" type="text" placeholder="when was your game released?"/>
         <button type="submit" (click)="onSubmit()"  (submit)="onSubmit()">
             Submit Game
         </button>

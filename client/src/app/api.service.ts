@@ -33,8 +33,14 @@ export class ApiService {
     );
   }
 
-  public addGame(){
-    
+  public addGame(title: string, description: string, icon: string, background: string, releaseDate: string){
+    console.log('API calling addNewGame endpoint...');
+    console.log(localStorage.getItem("TOKEN"));
+    return this.http.post(
+      'http://localhost:3000/games/addNewGame',
+      {title: title, description: description, icon: icon, background: background, releaseDate: releaseDate},
+      {headers: {'Authorization': localStorage.getItem("TOKEN")}}
+    );
   }
 
   public getUserObjectClientside(){
