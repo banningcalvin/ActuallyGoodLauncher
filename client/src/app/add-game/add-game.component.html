@@ -1,0 +1,12 @@
+<div class='content'>
+    <form>
+        <h1>
+            Submit a new game
+        </h1>
+        <input [(ngModel)]="gameToAdd.title" name="title" type="text" placeholder="my game name"/>
+        <input [(ngModel)]="gameToAdd.price" name="price" type="price" placeholder="19.99"/>
+        <button type="submit" (click)="onSubmit()"  (submit)="onSubmit()">
+            Submit Game
+        </button>
+    </form>
+</div>>

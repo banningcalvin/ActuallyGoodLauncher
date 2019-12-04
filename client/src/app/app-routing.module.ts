@@ -8,6 +8,7 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AddGameComponent } from './add-game/add-game.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
     {path: 'store', children: [
       {path: '', component: StoreComponent},
       {path: 'cart', component: CartComponent},
-      {path: ':id', component: GameComponent}
+      {path: 'addGame', component: AddGameComponent},
+      {path: ':id', component: GameComponent},
     ]},
     {path: 'library', component: LibraryComponent},
     {path: '', component: FooterComponent, outlet: 'footer'}

@@ -33,6 +33,10 @@ export class ApiService {
     );
   }
 
+  public addGame(){
+    
+  }
+
   public getUserObjectClientside(){
     return this.userObject;
   }
