@@ -140,3 +140,13 @@ body {
   overflow-x: hidden;
   max-width: 100vw;
 }
+
+button {
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #7390aa;
+  border-color: #000;
+  border-width: 1px;
+  border-style: solid;
+  padding: 5px;
+}

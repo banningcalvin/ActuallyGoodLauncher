@@ -38,6 +38,7 @@ h1 span {
   margin: 10px;
   text-align: left;
   display: block;
+  margin-bottom: 100px;
 }
 .tabs li {
   float: left;
@@ -114,4 +115,14 @@ p.link a {
 }
 p.link a:hover {
   background-color: #506477;
+}
+
+button {
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #7390aa;
+  border-color: #000;
+  border-width: 1px;
+  border-style: solid;
+  padding: 5px;
 }

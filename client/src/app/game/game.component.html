@@ -22,7 +22,9 @@
                 aria-hidden="true">
                 <p><strong>Release Date: </strong>{{ game.releaseDate }} </p>
                 <p><strong>Price: </strong>{{ game.price }} </p>
-
+                <button class="addToCartButton" (click)="addToCart(game)">
+                    Buy this Game for: {{ game.price }}
+                </button>
                 <span class='game-info'>
 
                     <span *ngIf="game.systemRequirements">
@@ -47,7 +49,5 @@
 
 
 
-    <button (click)="addToCart(game)">
-        {{ game.price | currency}}
-    </button>
+
 </div>
