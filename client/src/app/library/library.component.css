@@ -1,7 +1,11 @@
 .head{
-    display: grid;
-    /*padding: 10px;*/
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    margin-left: 8vw;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
 }
 
 .highlighted-games{
