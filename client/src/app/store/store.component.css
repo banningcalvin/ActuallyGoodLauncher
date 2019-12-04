@@ -111,6 +111,17 @@
     font-weight: 500;
 }
 
+@media only screen and (max-width: 768px){
+    .highlighted-games{
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem 1rem;
+    }
+    .highlighted-games__link{
+        width: 47vw;
+        height: 84vw;
+    }
+}
+
 @media(prefers-color-scheme: light){
     .listed-games__link{
         color: black;
