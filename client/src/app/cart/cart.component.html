@@ -1,13 +1,38 @@
-<div>
-    You have {{items.length}} items in your cart:
-    <div *ngFor="let item of items">
-        <h3>
-            {{ item.name }}
-        </h3>
+<div class='content'>
+    <div *ngIf="items.length == 0">
+        <h1>
+            There are zero games in your cart
+        </h1>
+        <h1>
+            😔
+        </h1>
+        <button [routerLink]="['/store']">
+            Browse games
+        </button>
     </div>
     <div *ngIf="items.length > 0">
-        <button>
-            Checkout
+        <h1 *ngIf="items.length == 1">
+            You have 1 item in your cart:
+        </h1>
+        <h1 *ngIf="items.length > 1">
+            You have {{items.length}} items in your cart:
+        </h1>
+        <ul>
+            <li *ngFor="let item of items">
+                <span>
+                    <h3>
+                        {{item.title}}
+                    </h3>
+                </span>
+                <span>
+                    <h3>
+                        {{item.price}}
+                    </h3>
+                </span>
+            </li>
+        </ul>
+        <button (click)="purchaseGames()">
+            Add to Library
         </button>
     </div>
 </div>
