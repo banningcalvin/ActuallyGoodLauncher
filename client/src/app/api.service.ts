@@ -81,8 +81,9 @@ export class ApiService {
     this.authSubject.next(false);
     this.authState = false;
   }
-  public register(){
-
+  public register(username: string, password: string){
+    let header = new HttpHeaders({'Content-Type': 'application/json'});
+    this.http.post('http://localhost:3000/account/register', {email: username, password: password}, {headers: header})
   }
   public isAuthenticated(){
     return this.authSubject.asObservable();
