@@ -33,6 +33,8 @@ export class GameController {
         const icon = req.body.icon;
         const background = req.body.background;
         const releaseDate = req.body.releaseDate;
+        const price = req.body.price;
+        const link = req.body.link;
 
         if (!title) {
             return res.status(422).send({ error: "You must enter game title." });
@@ -49,6 +51,12 @@ export class GameController {
         if (!releaseDate) {
             return res.status(422).send({ error: "You must enter release date string." });
         }
+        if (!price) {
+            return res.status(422).send({ error: "You must enter release price string." });
+        }
+        if (!link) {
+            return res.status(422).send({ error: "You must enter release link string." });
+        }
 
         const currentUser = new User(req.user);
 
@@ -57,10 +65,13 @@ export class GameController {
             title: title,
             description: description,
             releaseDate: releaseDate,
+            price: price,
+                link: link,
             data: {
                 times_played: 0,
                 icon: icon,
-                background: background
+                background: background,
+                
             }
         });
         game.save(function (err, newGame) {
@@ -119,7 +130,15 @@ export class GameController {
             }
 
             if ('releaseDate' in req.body){
-                game.data.releaseDate = req.body.releaseDate;
+                game.releaseDate = req.body.releaseDate;
+            }
+
+            if ('price' in req.body){
+                game.price = req.body.price;
+            }
+
+            if ('link' in req.body){
+                game.link = req.body.link;
             }
 
             game.save((err, updatedGame) => {

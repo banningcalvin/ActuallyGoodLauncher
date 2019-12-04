@@ -8,8 +8,11 @@ export type GameDocument = mongoose.Document & {
     title: string;
     description: string;
     releaseDate: string;
+    price: string;
+        link: string;
     data: {
         times_played: number;
+        
         icon: Url;
         background: Url;
     }
@@ -37,7 +40,14 @@ const GameSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-
+    price: {
+        required: true,
+        type: String
+    },
+    link: {
+        required: true,
+        type: String
+    },
     data: {
         times_played: {
             default: 0,
@@ -48,6 +58,7 @@ const GameSchema = new mongoose.Schema({
             required: true,
             type: String
         },
+        
         background: {
             required: true,
             type: String
@@ -67,6 +78,8 @@ GameSchema.methods.toJSON = function() {
         description: this.description,
         developer: this.developer,
         releaseDate: this.releaseDate,
+        price: this.price,
+        link: this.link,
         data: {
             times_played: this.data.times_played,
             icon: this.data.icon,
