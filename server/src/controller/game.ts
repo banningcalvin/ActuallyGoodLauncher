@@ -5,7 +5,7 @@ import { Game } from "../model/game";
 export class GameController {
 
     public buyGame(req: Request, res: Response, next: NextFunction) {
-        Game.findOne({ _id: req.params.gameId }, (err, game) => {
+        Game.findOne({ title: req.params.gameId }, (err, game) => {
             if (err) {
                 res.send(err);
             }
