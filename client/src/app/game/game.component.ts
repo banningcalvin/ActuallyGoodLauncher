@@ -25,13 +25,16 @@ export class GameComponent implements OnInit {
     console.log('yeeeee');
     this.route.paramMap.subscribe(params => {
       console.log("Loading game with id: {" + params.get('id') + "}");
+      
       this.gameID = params.get('id');
       this.apiService.getGame(this.gameID).subscribe((data) => {
         console.log(data);
         this.game = data;
       });
       //this.game = games[+params.get('id')];
+      
     });
+
   }
 
   addToCart(game){

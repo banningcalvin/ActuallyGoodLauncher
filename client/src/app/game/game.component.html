@@ -2,7 +2,7 @@
     <div class='image-banner' [style.background-image]="'url(' + game.data.background + ')'">
     </div>
 
-    <h1 class='title' style="z-index:1000;text-shadow: 1px 1px 4px black;margin:10px">
+    <h1 id="gameTitle" class='title' style="z-index:1000;text-shadow: 1px 1px 4px black;margin:10px">
         {{ game.title }}
     </h1>
     <ul class="tabs" role="tablist">
@@ -25,6 +25,12 @@
                 <button class="addToCartButton" (click)="addToCart(game)">
                     Buy this Game for: {{ game.price }}
                 </button>
+                <button id="launchGame">
+                        <a href="{{ game.link }}">You have this game installed: Launch it!</a>
+                </button>
+
+
+
                 <span class='game-info'>
 
                     <span *ngIf="game.systemRequirements">
