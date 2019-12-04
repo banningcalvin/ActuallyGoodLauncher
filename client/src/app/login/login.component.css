@@ -32,6 +32,14 @@ button, .login-error{
     transition: box-shadow .2s, background-color .2s;
 }
 
+ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+li{
+    padding: 2rem;
+}
 
 @media(prefers-color-scheme: light){
     input{

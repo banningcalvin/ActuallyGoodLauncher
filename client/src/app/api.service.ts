@@ -13,6 +13,8 @@ export class ApiService {
 
   //tmp: any = {};
   authSubject = new BehaviorSubject(false);
+  authState = false;
+  userObject = null;
 
   constructor(private http: HttpClient) {
 
@@ -31,6 +33,10 @@ export class ApiService {
     );
   }
 
+  public getUserObjectClientside(){
+    return this.userObject;
+  }
+
   public signIn(username: string, password: string){
     let header = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post('http://localhost:3000/account/login', {email: username, password: password}, {headers: header}).pipe(
@@ -40,23 +46,31 @@ export class ApiService {
         if(tmp.user){
           console.log("API Service is setting TOKEN and USER in local storage...");
           console.log(tmp);
+          this.userObject = tmp.user;
           localStorage.setItem("TOKEN", tmp.token);
           localStorage.setItem("USER", tmp.user);
           this.authSubject.next(true);
+          this.authState = true;
         }
       })
     );
   }
   public signOut(){
+    console.log(localStorage.getItem("USER"));
     localStorage.removeItem("TOKEN");
     localStorage.removeItem("USER");
     this.authSubject.next(false);
+    this.authState = false;
   }
   public register(){
 
   }
   public isAuthenticated(){
     return this.authSubject.asObservable();
+  }
+
+  public getAuthState(){
+    return this.authState;
   }
 
   public getUsers(){

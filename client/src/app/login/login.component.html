@@ -1,5 +1,5 @@
 <div class='content'>
-    <form>
+    <form *ngIf="!isLoggedIn">
         <h1>
             Login
         </h1>
@@ -17,4 +17,16 @@
             Test Authentication
         </button>
     </form>
+    <ul *ngIf="isLoggedIn">
+        <li>
+            <button (click)="logout()">
+                Logout
+            </button>
+        </li>
+        <li *ngIf="isDeveloper">
+            <button>
+                Add a game
+            </button>
+        </li>
+    </ul>
 </div>
