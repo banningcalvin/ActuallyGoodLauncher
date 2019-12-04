@@ -15,6 +15,7 @@ export class AddGameComponent implements OnInit {
     icon: '',
     background: '',
     releaseDate: '',
+    link: ''
     //whatever else is part of a game
   }
 
@@ -30,7 +31,9 @@ export class AddGameComponent implements OnInit {
       this.gameToAdd.description, 
       this.gameToAdd.icon, 
       this.gameToAdd.background, 
-      this.gameToAdd.releaseDate).subscribe((data) => {
+      this.gameToAdd.releaseDate,
+      this.gameToAdd.price,
+      this.gameToAdd.link).subscribe((data) => {
         //TODO: game is added successfully, nice
         console.log('Game added successfully!');
         this.router.navigateByUrl('/store');

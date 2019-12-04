@@ -19,16 +19,18 @@
         </h1>
         <ul>
             <li *ngFor="let item of items">
-                <span>
-                    <h3>
-                        {{item.title}}
-                    </h3>
-                </span>
-                <span>
-                    <h3>
-                        {{item.price}}
-                    </h3>
-                </span>
+                <a [routerLink]="['/store', item.title]">
+                    <span>
+                        <h3>
+                            {{item.title}}
+                        </h3>
+                    </span>
+                    <span>
+                        <h3>
+                            {{item.price}}
+                        </h3>
+                    </span>
+                </a>
             </li>
         </ul>
         <button (click)="purchaseGames()">
